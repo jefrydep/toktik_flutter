@@ -13,6 +13,7 @@ class DiscoverProvider extends ChangeNotifier{
 
     // todo cargar videos
     notifyListeners();
+    
 
   }
 

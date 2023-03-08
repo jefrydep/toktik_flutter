@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tok_tok_app/presentation/providers/discover_provider.dart';
 
 import 'config/theme/app_theme.dart';
 import 'presentation/screens/discover/discover_screen.dart';
@@ -10,14 +12,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().getTheme(),
-
-      title: 'toktik',
-       home: const DiscoverScreen(),
-        
-      );
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => DiscoverProvider()..loadNextPage())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme().getTheme(),
+    
+        title: 'toktik',
+         home: const DiscoverScreen(),
+          
+        ),
+    );
     
   }
 }
