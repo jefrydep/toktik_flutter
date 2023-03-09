@@ -85,7 +85,7 @@ class _VideoCaption extends StatelessWidget {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
     return  SizedBox(
       width: size.width * 0.6,
-      child: Text(caption,maxLines: 2,style: TextStyle(),),
+      child: Text(caption,maxLines: 2,style: titleStyle,),
     );
   }
 }
